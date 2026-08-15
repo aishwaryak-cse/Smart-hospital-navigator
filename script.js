@@ -1,5 +1,5 @@
 // =====================================
-// HASSAN GOVERNMENT HOSPITAL
+// HASSAN HOSPITAL NAVIGATOR
 // =====================================
 
 const hospital = {
@@ -7,66 +7,87 @@ const hospital = {
     name:
         "Hassan Institution of Medical Sciences and Hospital",
 
-    address:
-        "Sri Chamarajendra Hospital Campus, Hassan - 573201, Karnataka",
-
     phone:
-        "08172-231699",
+        "08172-231699"
 
-    maps:
-        "https://www.google.com/maps/search/?api=1&query=Hassan+Institution+of+Medical+Sciences+and+Hospital"
 };
 
 
 // =====================================
-// DEPARTMENT INFORMATION
+// DEPARTMENT DATA
 // =====================================
-
-// IMPORTANT:
-// Room numbers are NOT included because
-// we have not verified an official room list.
 
 const departments = {
 
     Emergency: {
+
+        room: "Emergency",
+
         en:
-            "Emergency services are available at the hospital. For the exact location inside the campus, please ask the hospital help desk.",
+            "Follow the highlighted route from the main entrance to the Emergency area.",
+
         kn:
-            "ಆಸ್ಪತ್ರೆಯಲ್ಲಿ ತುರ್ತು ಸೇವೆಗಳು ಲಭ್ಯವಿವೆ. ಆಸ್ಪತ್ರೆಯ ಒಳಗಿನ ನಿಖರ ಸ್ಥಳಕ್ಕಾಗಿ ಸಹಾಯ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ."
+            "ಮುಖ್ಯ ಪ್ರವೇಶದ್ವಾರದಿಂದ ತುರ್ತು ಚಿಕಿತ್ಸಾ ವಿಭಾಗಕ್ಕೆ ಹೈಲೈಟ್ ಮಾಡಿರುವ ಮಾರ್ಗವನ್ನು ಅನುಸರಿಸಿ."
+
     },
+
 
     OPD: {
+
+        room: "OPD",
+
         en:
-            "Outpatient Department (OPD) is available. Please confirm the exact counter or room at the hospital help desk.",
+            "Follow the highlighted route from the main entrance to the OPD.",
+
         kn:
-            "ಹೊರರೋಗಿಗಳ ವಿಭಾಗ (OPD) ಲಭ್ಯವಿದೆ. ನಿಖರ ಕೌಂಟರ್ ಅಥವಾ ಕೊಠಡಿಗಾಗಿ ಆಸ್ಪತ್ರೆಯ ಸಹಾಯ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ."
+            "ಮುಖ್ಯ ಪ್ರವೇಶದ್ವಾರದಿಂದ OPD ಗೆ ಹೈಲೈಟ್ ಮಾಡಿರುವ ಮಾರ್ಗವನ್ನು ಅನುಸರಿಸಿ."
+
     },
+
 
     Radiology: {
+
+        room: "Radiology",
+
         en:
-            "Radiology services are available. Please confirm the exact location inside the hospital before proceeding.",
+            "Follow the highlighted route from the main entrance to Radiology.",
+
         kn:
-            "ರೇಡಿಯಾಲಜಿ ಸೇವೆಗಳು ಲಭ್ಯವಿವೆ. ಹೋಗುವ ಮೊದಲು ಆಸ್ಪತ್ರೆಯ ಒಳಗಿನ ನಿಖರ ಸ್ಥಳವನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ."
+            "ಮುಖ್ಯ ಪ್ರವೇಶದ್ವಾರದಿಂದ ರೇಡಿಯಾಲಜಿ ವಿಭಾಗಕ್ಕೆ ಹೈಲೈಟ್ ಮಾಡಿರುವ ಮಾರ್ಗವನ್ನು ಅನುಸರಿಸಿ."
+
     },
+
 
     Pharmacy: {
+
+        room: "Pharmacy",
+
         en:
-            "Pharmacy services are available. Please ask the hospital help desk for the exact location.",
+            "Follow the highlighted route from the main entrance to the Pharmacy.",
+
         kn:
-            "ಔಷಧಾಲಯ ಸೇವೆಗಳು ಲಭ್ಯವಿವೆ. ನಿಖರ ಸ್ಥಳಕ್ಕಾಗಿ ಆಸ್ಪತ್ರೆಯ ಸಹಾಯ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ."
+            "ಮುಖ್ಯ ಪ್ರವೇಶದ್ವಾರದಿಂದ ಔಷಧಾಲಯಕ್ಕೆ ಹೈಲೈಟ್ ಮಾಡಿರುವ ಮಾರ್ಗವನ್ನು ಅನುಸರಿಸಿ."
+
     },
 
+
     Other: {
+
+        room: "Help Desk",
+
         en:
-            "Please contact the hospital help desk for assistance in finding your required department.",
+            "Go to the Help Desk for assistance in locating another department.",
+
         kn:
-            "ನಿಮಗೆ ಬೇಕಾದ ವಿಭಾಗವನ್ನು ಹುಡುಕಲು ಆಸ್ಪತ್ರೆಯ ಸಹಾಯ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ."
+            "ಇತರ ವಿಭಾಗವನ್ನು ಹುಡುಕಲು ಸಹಾಯ ಕೇಂದ್ರಕ್ಕೆ ಹೋಗಿ."
+
     }
+
 };
 
 
 // =====================================
-// CURRENT LANGUAGE
+// LANGUAGE
 // =====================================
 
 let currentLanguage = "en";
@@ -91,42 +112,213 @@ function findDepartment() {
 
         result.innerHTML =
             currentLanguage === "en"
+
                 ? "⚠️ Please select a department first."
+
                 : "⚠️ ದಯವಿಟ್ಟು ಮೊದಲು ವಿಭಾಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ.";
 
         return;
     }
 
 
-    const information =
-        departments[selected];
-
-
-    result.style.display = "block";
-
-
-    result.innerHTML =
-
-        "🏥 <strong>" +
-        hospital.name +
-        "</strong><br><br>" +
-
-        "🔎 <strong>" +
-        selected +
-        "</strong><br>" +
-
-        information[currentLanguage] +
-
-        "<br><br>" +
-
-        "📞 Hospital: " +
-        hospital.phone;
+    selectMapDepartment(selected);
 
 }
 
 
 // =====================================
-// LANGUAGE
+// SELECT MAP DEPARTMENT
+// =====================================
+
+function selectMapDepartment(departmentName) {
+
+    const result =
+        document.getElementById("result");
+
+
+    const directions =
+        document.getElementById("directionsText");
+
+
+    const information =
+        departments[departmentName];
+
+
+    if (!information) {
+        return;
+    }
+
+
+    // Update dropdown
+
+    document.getElementById("department").value =
+        departmentName;
+
+
+    // Remove previous selection
+
+    document
+        .querySelectorAll(".department-room")
+        .forEach(room => {
+
+            room.classList.remove("selected");
+
+        });
+
+
+    // Select destination
+
+    const destination =
+        document.querySelector(
+            `[data-department="${departmentName}"]`
+        );
+
+
+    if (destination) {
+
+        destination.classList.add("selected");
+
+    }
+
+
+    // Show result
+
+    result.style.display = "block";
+
+    result.innerHTML =
+
+        "📍 <strong>" +
+        information.room +
+        "</strong><br><br>" +
+
+        information[currentLanguage] +
+
+        "<br><br>" +
+
+        "📞 " +
+        hospital.phone;
+
+
+    // Update directions
+
+    directions.innerText =
+        information[currentLanguage];
+
+
+    // Draw route
+
+    drawRoute(destination);
+
+}
+
+
+// =====================================
+// DRAW ROUTE
+// =====================================
+
+function drawRoute(destination) {
+
+    const route =
+        document.getElementById("routeLine");
+
+
+    const entrance =
+        document.getElementById("entrance");
+
+
+    if (!destination) {
+
+        route.style.display = "none";
+
+        return;
+
+    }
+
+
+    const map =
+        document.querySelector(".indoor-map");
+
+
+    const mapRect =
+        map.getBoundingClientRect();
+
+
+    const entranceRect =
+        entrance.getBoundingClientRect();
+
+
+    const destinationRect =
+        destination.getBoundingClientRect();
+
+
+    const startX =
+        entranceRect.left -
+        mapRect.left +
+        entranceRect.width / 2;
+
+
+    const startY =
+        entranceRect.top -
+        mapRect.top +
+        entranceRect.height / 2;
+
+
+    const endX =
+        destinationRect.left -
+        mapRect.left +
+        destinationRect.width / 2;
+
+
+    const endY =
+        destinationRect.top -
+        mapRect.top +
+        destinationRect.height / 2;
+
+
+    const dx =
+        endX - startX;
+
+
+    const dy =
+        endY - startY;
+
+
+    const distance =
+        Math.sqrt(
+            dx * dx +
+            dy * dy
+        );
+
+
+    const angle =
+        Math.atan2(dy, dx) *
+        180 /
+        Math.PI;
+
+
+    route.style.display = "block";
+
+
+    route.style.left =
+        startX + "px";
+
+
+    route.style.top =
+        startY + "px";
+
+
+    route.style.width =
+        distance + "px";
+
+
+    route.style.transform =
+        `rotate(${angle}deg)`;
+
+}
+
+
+// =====================================
+// LANGUAGE SWITCH
 // =====================================
 
 function setLanguage(language) {
@@ -146,6 +338,21 @@ function setLanguage(language) {
     const findButton =
         document.getElementById("findButton");
 
+    const selectLabel =
+        document.getElementById("selectLabel");
+
+    const mapTitle =
+        document.getElementById("mapTitle");
+
+    const mapSubtitle =
+        document.getElementById("mapSubtitle");
+
+    const mapNote =
+        document.getElementById("mapNote");
+
+    const directionsTitle =
+        document.getElementById("directionsTitle");
+
 
     if (language === "kn") {
 
@@ -153,13 +360,28 @@ function setLanguage(language) {
             "ಹಾಸನ ಆಸ್ಪತ್ರೆ ನ್ಯಾವಿಗೇಟರ್";
 
         subtitle.innerText =
-            "ಹಾಸನ ಸರ್ಕಾರಿ ಆಸ್ಪತ್ರೆಯಲ್ಲಿ ನಿಮ್ಮ ಮಾರ್ಗವನ್ನು ಹುಡುಕಿ";
+            "ಆಸ್ಪತ್ರೆಯ ಒಳಗೆ ನಿಮ್ಮ ವಿಭಾಗವನ್ನು ಹುಡುಕಿ";
 
         departmentTitle.innerText =
             "🔎 ವಿಭಾಗವನ್ನು ಹುಡುಕಿ";
 
+        selectLabel.innerText =
+            "ನಿಮ್ಮ ಗಮ್ಯಸ್ಥಾನವನ್ನು ಆಯ್ಕೆಮಾಡಿ";
+
         findButton.innerText =
-            "ವಿಭಾಗವನ್ನು ಹುಡುಕಿ";
+            "ಸ್ಥಳವನ್ನು ತೋರಿಸಿ";
+
+        mapTitle.innerText =
+            "🗺️ ಆಸ್ಪತ್ರೆಯ ಒಳಾಂಗಣ ನಕ್ಷೆ";
+
+        mapSubtitle.innerText =
+            "ವಿಭಾಗವನ್ನು ಆಯ್ಕೆ ಮಾಡಿದಾಗ ಅದರ ಸ್ಥಳವನ್ನು ತೋರಿಸಲಾಗುತ್ತದೆ.";
+
+        mapNote.innerText =
+            "⚠️ ಇದು ಪ್ರಸ್ತುತ ಮಾದರಿ ಒಳಾಂಗಣ ನಕ್ಷೆಯಾಗಿದೆ. ನೈಜ ಬಳಕೆಗೆ ಮೊದಲು ಆಸ್ಪತ್ರೆಯ ಅಧಿಕೃತ ಫ್ಲೋರ್ ಪ್ಲಾನ್‌ನೊಂದಿಗೆ ನಿಖರ ಸ್ಥಳಗಳನ್ನು ಪರಿಶೀಲಿಸಬೇಕು.";
+
+        directionsTitle.innerText =
+            "🧭 ಮಾರ್ಗದರ್ಶನ";
 
     } else {
 
@@ -167,63 +389,59 @@ function setLanguage(language) {
             "Hassan Hospital Navigator";
 
         subtitle.innerText =
-            "Find your way around Hassan Government Hospital";
+            "Find your way to a department inside the hospital";
 
         departmentTitle.innerText =
             "🔎 Find a Department";
 
+        selectLabel.innerText =
+            "Select your destination";
+
         findButton.innerText =
-            "Find Department";
+            "Show Location";
+
+        mapTitle.innerText =
+            "🗺️ Indoor Hospital Map";
+
+        mapSubtitle.innerText =
+            "Select a department to see its location.";
+
+        mapNote.innerText =
+            "⚠️ Prototype indoor layout. Exact department positions should be verified against the hospital's official floor plan before real-world use.";
+
+        directionsTitle.innerText =
+            "🧭 Directions";
+
+    }
+
+
+    // Update current result if one is already selected
+
+    const selected =
+        document.getElementById("department").value;
+
+
+    if (selected !== "") {
+
+        selectMapDepartment(selected);
+
     }
 
 }
 
 
 // =====================================
-// MAP
+// INITIAL STATE
 // =====================================
 
-// We use a Google Maps search link rather
-// than inventing coordinates.
+window.addEventListener(
+    "load",
+    function () {
 
-const map = L.map("map").setView(
-    [13.0068, 76.1003],
-    14
-);
+        const route =
+            document.getElementById("routeLine");
 
-
-L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-        maxZoom: 19,
-
-        attribution:
-            "&copy; OpenStreetMap contributors"
-    }
-).addTo(map);
-
-
-const marker =
-    L.marker([13.0068, 76.1003])
-        .addTo(map);
-
-
-marker.bindPopup(
-    "<strong>🏥 Hassan Institution of Medical Sciences and Hospital</strong><br>" +
-    "Sri Chamarajendra Hospital Campus<br>" +
-    "Hassan - 573201"
-);
-
-
-// =====================================
-// GOOGLE MAPS
-// =====================================
-
-function openGoogleMaps() {
-
-    window.open(
-        hospital.maps,
-        "_blank"
-    );
+        route.style.display = "none";
 
     }
+);
