@@ -1,254 +1,229 @@
-// ===============================
-// HOSPITAL DATA
-// ===============================
+// =====================================
+// HASSAN GOVERNMENT HOSPITAL
+// =====================================
 
-const hospitals = {
+const hospital = {
 
-    hassan: {
+    name:
+        "Hassan Institution of Medical Sciences and Hospital",
 
-        name: "Hassan Government Hospital",
+    address:
+        "Sri Chamarajendra Hospital Campus, Hassan - 573201, Karnataka",
 
-        lat: 13.0068,
+    phone:
+        "08172-231699",
 
-        lng: 76.1003,
-
-        address: "Hassan, Karnataka",
-
-        maps:
-            "https://www.google.com/maps/search/?api=1&query=Hassan+Government+Hospital"
-    },
-
-    mce: {
-
-        name: "Malnad College Hospital",
-
-        lat: 13.0075,
-
-        lng: 76.0950,
-
-        address: "Hassan, Karnataka",
-
-        maps:
-            "https://www.google.com/maps/search/?api=1&query=Malnad+College+of+Engineering+Hassan"
-    }
-
+    maps:
+        "https://www.google.com/maps/search/?api=1&query=Hassan+Institution+of+Medical+Sciences+and+Hospital"
 };
 
 
-// ===============================
-// DEPARTMENT DATA
-// ===============================
+// =====================================
+// DEPARTMENT INFORMATION
+// =====================================
+
+// IMPORTANT:
+// Room numbers are NOT included because
+// we have not verified an official room list.
 
 const departments = {
 
-    "Cardiology": {
-
-        room: "Room 204",
-
-        floor: "2nd Floor"
+    Emergency: {
+        en:
+            "Emergency services are available at the hospital. For the exact location inside the campus, please ask the hospital help desk.",
+        kn:
+            "ಆಸ್ಪತ್ರೆಯಲ್ಲಿ ತುರ್ತು ಸೇವೆಗಳು ಲಭ್ಯವಿವೆ. ಆಸ್ಪತ್ರೆಯ ಒಳಗಿನ ನಿಖರ ಸ್ಥಳಕ್ಕಾಗಿ ಸಹಾಯ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ."
     },
 
-    "Neurology": {
-
-        room: "Room 301",
-
-        floor: "3rd Floor"
+    OPD: {
+        en:
+            "Outpatient Department (OPD) is available. Please confirm the exact counter or room at the hospital help desk.",
+        kn:
+            "ಹೊರರೋಗಿಗಳ ವಿಭಾಗ (OPD) ಲಭ್ಯವಿದೆ. ನಿಖರ ಕೌಂಟರ್ ಅಥವಾ ಕೊಠಡಿಗಾಗಿ ಆಸ್ಪತ್ರೆಯ ಸಹಾಯ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ."
     },
 
-    "Orthopedics": {
-
-        room: "Room 105",
-
-        floor: "1st Floor"
+    Radiology: {
+        en:
+            "Radiology services are available. Please confirm the exact location inside the hospital before proceeding.",
+        kn:
+            "ರೇಡಿಯಾಲಜಿ ಸೇವೆಗಳು ಲಭ್ಯವಿವೆ. ಹೋಗುವ ಮೊದಲು ಆಸ್ಪತ್ರೆಯ ಒಳಗಿನ ನಿಖರ ಸ್ಥಳವನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ."
     },
 
-    "General Medicine": {
-
-        room: "Room 110",
-
-        floor: "1st Floor"
+    Pharmacy: {
+        en:
+            "Pharmacy services are available. Please ask the hospital help desk for the exact location.",
+        kn:
+            "ಔಷಧಾಲಯ ಸೇವೆಗಳು ಲಭ್ಯವಿವೆ. ನಿಖರ ಸ್ಥಳಕ್ಕಾಗಿ ಆಸ್ಪತ್ರೆಯ ಸಹಾಯ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ."
     },
 
-    "Emergency": {
-
-        room: "Emergency Department",
-
-        floor: "Ground Floor"
+    Other: {
+        en:
+            "Please contact the hospital help desk for assistance in finding your required department.",
+        kn:
+            "ನಿಮಗೆ ಬೇಕಾದ ವಿಭಾಗವನ್ನು ಹುಡುಕಲು ಆಸ್ಪತ್ರೆಯ ಸಹಾಯ ಕೇಂದ್ರವನ್ನು ಸಂಪರ್ಕಿಸಿ."
     }
-
 };
 
 
-// ===============================
-// MAP
-// ===============================
+// =====================================
+// CURRENT LANGUAGE
+// =====================================
 
-let currentHospital = "hassan";
-
-let map;
-
-let marker;
+let currentLanguage = "en";
 
 
-// Create map
+// =====================================
+// FIND DEPARTMENT
+// =====================================
 
-function createMap() {
+function findDepartment() {
 
-    const hospital = hospitals[currentHospital];
-
-    map = L.map("map").setView(
-        [hospital.lat, hospital.lng],
-        15
-    );
-
-
-    // OpenStreetMap tiles
-
-    L.tileLayer(
-        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-        {
-
-            maxZoom: 19,
-
-            attribution:
-                '&copy; OpenStreetMap contributors'
-
-        }
-    ).addTo(map);
-
-
-    // Hospital marker
-
-    marker = L.marker([
-        hospital.lat,
-        hospital.lng
-    ]).addTo(map);
-
-
-    marker.bindPopup(
-        "<b>🏥 " +
-        hospital.name +
-        "</b><br>" +
-        hospital.address
-    );
-
-}
-
-
-// ===============================
-// CHANGE HOSPITAL
-// ===============================
-
-document
-    .getElementById("hospital")
-    .addEventListener("change", function () {
-
-        currentHospital = this.value;
-
-        updateMap();
-
-        document.getElementById("result").innerHTML = "";
-
-    });
-
-
-// ===============================
-// UPDATE MAP
-// ===============================
-
-function updateMap() {
-
-    const hospital = hospitals[currentHospital];
-
-
-    map.setView(
-        [hospital.lat, hospital.lng],
-        15
-    );
-
-
-    marker.setLatLng([
-        hospital.lat,
-        hospital.lng
-    ]);
-
-
-    marker.bindPopup(
-        "<b>🏥 " +
-        hospital.name +
-        "</b><br>" +
-        hospital.address
-    );
-
-}
-
-
-// ===============================
-// FIND ROOM
-// ===============================
-
-function findRoom() {
-
-    const hospital =
-        hospitals[currentHospital];
-
-    const department =
-        document.getElementById(
-            "department"
-        ).value;
-
-    const departmentInfo =
-        departments[department];
-
+    const selected =
+        document.getElementById("department").value;
 
     const result =
         document.getElementById("result");
 
 
+    if (selected === "") {
+
+        result.style.display = "block";
+
+        result.innerHTML =
+            currentLanguage === "en"
+                ? "⚠️ Please select a department first."
+                : "⚠️ ದಯವಿಟ್ಟು ಮೊದಲು ವಿಭಾಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ.";
+
+        return;
+    }
+
+
+    const information =
+        departments[selected];
+
+
+    result.style.display = "block";
+
+
     result.innerHTML =
 
-        "🏥 <b>" +
+        "🏥 <strong>" +
         hospital.name +
-        "</b><br>" +
+        "</strong><br><br>" +
 
-        "🏥 Department: <b>" +
-        department +
-        "</b><br>" +
+        "🔎 <strong>" +
+        selected +
+        "</strong><br>" +
 
-        "📍 Room: <b>" +
-        departmentInfo.room +
-        "</b><br>" +
+        information[currentLanguage] +
 
-        "🏢 Floor: <b>" +
-        departmentInfo.floor +
-        "</b>";
+        "<br><br>" +
 
-
-    // Move map to hospital
-
-    map.setView(
-        [hospital.lat, hospital.lng],
-        17
-    );
-
-
-    marker.openPopup();
+        "📞 Hospital: " +
+        hospital.phone;
 
 }
 
 
-// ===============================
+// =====================================
+// LANGUAGE
+// =====================================
+
+function setLanguage(language) {
+
+    currentLanguage = language;
+
+
+    const title =
+        document.getElementById("title");
+
+    const subtitle =
+        document.getElementById("subtitle");
+
+    const departmentTitle =
+        document.getElementById("departmentTitle");
+
+    const findButton =
+        document.getElementById("findButton");
+
+
+    if (language === "kn") {
+
+        title.innerText =
+            "ಹಾಸನ ಆಸ್ಪತ್ರೆ ನ್ಯಾವಿಗೇಟರ್";
+
+        subtitle.innerText =
+            "ಹಾಸನ ಸರ್ಕಾರಿ ಆಸ್ಪತ್ರೆಯಲ್ಲಿ ನಿಮ್ಮ ಮಾರ್ಗವನ್ನು ಹುಡುಕಿ";
+
+        departmentTitle.innerText =
+            "🔎 ವಿಭಾಗವನ್ನು ಹುಡುಕಿ";
+
+        findButton.innerText =
+            "ವಿಭಾಗವನ್ನು ಹುಡುಕಿ";
+
+    } else {
+
+        title.innerText =
+            "Hassan Hospital Navigator";
+
+        subtitle.innerText =
+            "Find your way around Hassan Government Hospital";
+
+        departmentTitle.innerText =
+            "🔎 Find a Department";
+
+        findButton.innerText =
+            "Find Department";
+    }
+
+}
+
+
+// =====================================
+// MAP
+// =====================================
+
+// We use a Google Maps search link rather
+// than inventing coordinates.
+
+const map = L.map("map").setView(
+    [13.0068, 76.1003],
+    14
+);
+
+
+L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        maxZoom: 19,
+
+        attribution:
+            "&copy; OpenStreetMap contributors"
+    }
+).addTo(map);
+
+
+const marker =
+    L.marker([13.0068, 76.1003])
+        .addTo(map);
+
+
+marker.bindPopup(
+    "<strong>🏥 Hassan Institution of Medical Sciences and Hospital</strong><br>" +
+    "Sri Chamarajendra Hospital Campus<br>" +
+    "Hassan - 573201"
+);
+
+
+// =====================================
 // GOOGLE MAPS
-// ===============================
+// =====================================
 
 function openGoogleMaps() {
-
-    const hospital =
-        hospitals[currentHospital];
 
     window.open(
         hospital.maps,
         "_blank"
     );
 
-}
+    }
