@@ -7,163 +7,265 @@
     <title>Hassan Hospital Navigator</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    />
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <div class="header">
-            <div class="hospital-icon">🏥</div>
+    <div class="header">
+        <div class="hospital-icon">🏥</div>
 
-            <h1 id="title">
-                Hassan Hospital Navigator
-            </h1>
+        <h1 id="title">Hassan Hospital Navigator</h1>
 
-            <p id="subtitle">
-                Find your way around Hassan Government Hospital
-            </p>
-        </div>
+        <p id="subtitle">
+            Find your way to a department inside the hospital
+        </p>
+    </div>
 
 
-        <!-- Language -->
-        <div class="language-box">
+    <!-- LANGUAGE -->
 
-            <button onclick="setLanguage('en')" class="language-btn">
-                English
-            </button>
+    <div class="language-box">
 
-            <button onclick="setLanguage('kn')" class="language-btn">
-                ಕನ್ನಡ
-            </button>
+        <button onclick="setLanguage('en')" class="language-btn">
+            English
+        </button>
 
-        </div>
-
-
-        <!-- Hospital Information -->
-
-        <div class="info-card">
-
-            <h2>🏥 Hassan Institution of Medical Sciences & Hospital</h2>
-
-            <p>
-                <strong>Location:</strong>
-                Sri Chamarajendra Hospital Campus,
-                Hassan – 573201, Karnataka
-            </p>
-
-            <p>
-                <strong>Phone:</strong>
-                08172-231699
-            </p>
-
-            <a
-                href="https://himshassan.karnataka.gov.in/"
-                target="_blank"
-            >
-                Official Hospital Website
-            </a>
-
-        </div>
-
-
-        <!-- Department -->
-
-        <div class="navigation-card">
-
-            <h2 id="departmentTitle">
-                🔎 Find a Department
-            </h2>
-
-            <select id="department">
-
-                <option value="">
-                    Select a department
-                </option>
-
-                <option value="Emergency">
-                    Emergency
-                </option>
-
-                <option value="OPD">
-                    OPD
-                </option>
-
-                <option value="Radiology">
-                    Radiology
-                </option>
-
-                <option value="Pharmacy">
-                    Pharmacy
-                </option>
-
-                <option value="Other">
-                    Other / Need Help
-                </option>
-
-            </select>
-
-            <button
-                onclick="findDepartment()"
-                id="findButton"
-            >
-                Find Department
-            </button>
-
-        </div>
-
-
-        <!-- Result -->
-
-        <div
-            id="result"
-            class="result"
-        ></div>
-
-
-        <!-- Map -->
-
-        <div class="map-card">
-
-            <h2>🗺️ Hospital Location</h2>
-
-            <div id="map"></div>
-
-            <button
-                onclick="openGoogleMaps()"
-                class="maps-button"
-            >
-                📍 Open in Google Maps
-            </button>
-
-        </div>
-
-
-        <footer>
-
-            <p>
-                Smart Hospital Navigator
-            </p>
-
-            <small>
-                Student Project • Hassan, Karnataka
-            </small>
-
-        </footer>
+        <button onclick="setLanguage('kn')" class="language-btn">
+            ಕನ್ನಡ
+        </button>
 
     </div>
 
 
-    <script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
-    </script>
+    <!-- HOSPITAL INFO -->
 
-    <script src="script.js"></script>
+    <div class="info-card">
+
+        <h2>🏥 Hassan Institution of Medical Sciences & Hospital</h2>
+
+        <p>
+            <strong>Address:</strong>
+            Sri Chamarajendra Hospital Campus,
+            Hassan – 573201, Karnataka
+        </p>
+
+        <p>
+            <strong>Phone:</strong>
+            08172-231699
+        </p>
+
+        <a
+            href="https://himshassan.karnataka.gov.in/"
+            target="_blank"
+        >
+            Official Hospital Website
+        </a>
+
+    </div>
+
+
+    <!-- DEPARTMENT SEARCH -->
+
+    <div class="navigation-card">
+
+        <h2 id="departmentTitle">
+            🔎 Find a Department
+        </h2>
+
+        <label for="department" id="selectLabel">
+            Select your destination
+        </label>
+
+        <select id="department">
+
+            <option value="">
+                Select a department
+            </option>
+
+            <option value="Emergency">
+                🚑 Emergency
+            </option>
+
+            <option value="OPD">
+                🩺 OPD
+            </option>
+
+            <option value="Radiology">
+                🩻 Radiology
+            </option>
+
+            <option value="Pharmacy">
+                💊 Pharmacy
+            </option>
+
+            <option value="Other">
+                ❓ Other / Help Desk
+            </option>
+
+        </select>
+
+        <button
+            onclick="findDepartment()"
+            id="findButton"
+        >
+            Show Location
+        </button>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div
+        id="result"
+        class="result"
+    ></div>
+
+
+    <!-- INDOOR MAP -->
+
+    <div class="map-card">
+
+        <div class="map-heading">
+
+            <div>
+                <h2 id="mapTitle">
+                    🗺️ Indoor Hospital Map
+                </h2>
+
+                <p id="mapSubtitle">
+                    Select a department to see its location.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="indoor-map">
+
+            <!-- Entrance -->
+
+            <div
+                id="entrance"
+                class="map-room entrance"
+            >
+                🚪
+                <span>MAIN ENTRANCE</span>
+            </div>
+
+
+            <!-- Corridor -->
+
+            <div class="corridor horizontal"></div>
+            <div class="corridor vertical"></div>
+
+
+            <!-- Departments -->
+
+            <button
+                class="map-room department-room emergency"
+                data-department="Emergency"
+                onclick="selectMapDepartment('Emergency')"
+            >
+                🚑
+                <span>Emergency</span>
+            </button>
+
+
+            <button
+                class="map-room department-room opd"
+                data-department="OPD"
+                onclick="selectMapDepartment('OPD')"
+            >
+                🩺
+                <span>OPD</span>
+            </button>
+
+
+            <button
+                class="map-room department-room radiology"
+                data-department="Radiology"
+                onclick="selectMapDepartment('Radiology')"
+            >
+                🩻
+                <span>Radiology</span>
+            </button>
+
+
+            <button
+                class="map-room department-room pharmacy"
+                data-department="Pharmacy"
+                onclick="selectMapDepartment('Pharmacy')"
+            >
+                💊
+                <span>Pharmacy</span>
+            </button>
+
+
+            <button
+                class="map-room department-room helpdesk"
+                data-department="Other"
+                onclick="selectMapDepartment('Other')"
+            >
+                ℹ️
+                <span>Help Desk</span>
+            </button>
+
+
+            <!-- ROUTE -->
+
+            <div id="routeLine"></div>
+
+        </div>
+
+
+        <div class="map-note" id="mapNote">
+
+            ⚠️ Prototype indoor layout.
+            Exact department positions should be verified against
+            the hospital's official floor plan before real-world use.
+
+        </div>
+
+    </div>
+
+
+    <!-- DIRECTIONS -->
+
+    <div
+        id="directions"
+        class="directions-card"
+    >
+
+        <h2 id="directionsTitle">
+            🧭 Directions
+        </h2>
+
+        <p id="directionsText">
+            Select a department to get directions.
+        </p>
+
+    </div>
+
+
+    <footer>
+
+        <p>
+            Smart Hospital Navigator
+        </p>
+
+        <small>
+            Student Project • Hassan, Karnataka
+        </small>
+
+    </footer>
+
+</div>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
