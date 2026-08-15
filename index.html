@@ -1,35 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Smart Hospital Navigator</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet Map -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
 </head>
 
 <body>
 
-    <h1>🏥 Smart Hospital Navigator</h1>
+    <div class="container">
 
-    <p>Find your department and room easily.</p>
+        <h1>🏥 Smart Hospital Navigator</h1>
 
-    <h2>Find a Department</h2>
+        <p class="subtitle">
+            Find your hospital, department and room easily.
+        </p>
 
-    <label for="department">Choose a department:</label>
+        <!-- Hospital Selection -->
+        <h2>🏥 Select Hospital</h2>
 
-    <select id="department">
-        <option>Cardiology</option>
-        <option>Neurology</option>
-        <option>Orthopedics</option>
-        <option>General Medicine</option>
-        <option>Emergency</option>
-    </select>
+        <select id="hospital">
+            <option value="hassan">Hassan Government Hospital</option>
+            <option value="mce">Malnad College Hospital</option>
+        </select>
 
-    <br><br>
 
-    <button onclick="findRoom()">Find Room</button>
+        <!-- Department Selection -->
+        <h2>🔎 Find a Department</h2>
 
-<p id="result"></p>
+        <label for="department">
+            Choose a department:
+        </label>
 
-<script src="script.js"></script>
+        <select id="department">
+
+            <option value="Cardiology">
+                Cardiology
+            </option>
+
+            <option value="Neurology">
+                Neurology
+            </option>
+
+            <option value="Orthopedics">
+                Orthopedics
+            </option>
+
+            <option value="General Medicine">
+                General Medicine
+            </option>
+
+            <option value="Emergency">
+                Emergency
+            </option>
+
+        </select>
+
+        <br>
+
+        <button onclick="findRoom()">
+            Find Room
+        </button>
+
+
+        <!-- Result -->
+        <div id="result" class="result"></div>
+
+
+        <!-- Map -->
+        <h2>🗺️ Hospital Location</h2>
+
+        <div id="map"></div>
+
+        <button
+            id="mapsButton"
+            class="maps-button"
+            onclick="openGoogleMaps()"
+        >
+            📍 Open in Google Maps
+        </button>
+
+    </div>
+
+
+    <!-- Leaflet Map JavaScript -->
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
