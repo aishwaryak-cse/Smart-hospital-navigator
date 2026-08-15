@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Smart Hospital Navigator</title>
+    <title>Hassan Hospital Navigator</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Leaflet Map -->
     <link
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -19,80 +18,147 @@
 
     <div class="container">
 
-        <h1>🏥 Smart Hospital Navigator</h1>
+        <div class="header">
+            <div class="hospital-icon">🏥</div>
 
-        <p class="subtitle">
-            Find your hospital, department and room easily.
-        </p>
+            <h1 id="title">
+                Hassan Hospital Navigator
+            </h1>
 
-        <!-- Hospital Selection -->
-        <h2>🏥 Select Hospital</h2>
-
-        <select id="hospital">
-            <option value="hassan">Hassan Government Hospital</option>
-            <option value="mce">Malnad College Hospital</option>
-        </select>
+            <p id="subtitle">
+                Find your way around Hassan Government Hospital
+            </p>
+        </div>
 
 
-        <!-- Department Selection -->
-        <h2>🔎 Find a Department</h2>
+        <!-- Language -->
+        <div class="language-box">
 
-        <label for="department">
-            Choose a department:
-        </label>
+            <button onclick="setLanguage('en')" class="language-btn">
+                English
+            </button>
 
-        <select id="department">
+            <button onclick="setLanguage('kn')" class="language-btn">
+                ಕನ್ನಡ
+            </button>
 
-            <option value="Cardiology">
-                Cardiology
-            </option>
+        </div>
 
-            <option value="Neurology">
-                Neurology
-            </option>
 
-            <option value="Orthopedics">
-                Orthopedics
-            </option>
+        <!-- Hospital Information -->
 
-            <option value="General Medicine">
-                General Medicine
-            </option>
+        <div class="info-card">
 
-            <option value="Emergency">
-                Emergency
-            </option>
+            <h2>🏥 Hassan Institution of Medical Sciences & Hospital</h2>
 
-        </select>
+            <p>
+                <strong>Location:</strong>
+                Sri Chamarajendra Hospital Campus,
+                Hassan – 573201, Karnataka
+            </p>
 
-        <br>
+            <p>
+                <strong>Phone:</strong>
+                08172-231699
+            </p>
 
-        <button onclick="findRoom()">
-            Find Room
-        </button>
+            <a
+                href="https://himshassan.karnataka.gov.in/"
+                target="_blank"
+            >
+                Official Hospital Website
+            </a>
+
+        </div>
+
+
+        <!-- Department -->
+
+        <div class="navigation-card">
+
+            <h2 id="departmentTitle">
+                🔎 Find a Department
+            </h2>
+
+            <select id="department">
+
+                <option value="">
+                    Select a department
+                </option>
+
+                <option value="Emergency">
+                    Emergency
+                </option>
+
+                <option value="OPD">
+                    OPD
+                </option>
+
+                <option value="Radiology">
+                    Radiology
+                </option>
+
+                <option value="Pharmacy">
+                    Pharmacy
+                </option>
+
+                <option value="Other">
+                    Other / Need Help
+                </option>
+
+            </select>
+
+            <button
+                onclick="findDepartment()"
+                id="findButton"
+            >
+                Find Department
+            </button>
+
+        </div>
 
 
         <!-- Result -->
-        <div id="result" class="result"></div>
+
+        <div
+            id="result"
+            class="result"
+        ></div>
 
 
         <!-- Map -->
-        <h2>🗺️ Hospital Location</h2>
 
-        <div id="map"></div>
+        <div class="map-card">
 
-        <button
-            id="mapsButton"
-            class="maps-button"
-            onclick="openGoogleMaps()"
-        >
-            📍 Open in Google Maps
-        </button>
+            <h2>🗺️ Hospital Location</h2>
+
+            <div id="map"></div>
+
+            <button
+                onclick="openGoogleMaps()"
+                class="maps-button"
+            >
+                📍 Open in Google Maps
+            </button>
+
+        </div>
+
+
+        <footer>
+
+            <p>
+                Smart Hospital Navigator
+            </p>
+
+            <small>
+                Student Project • Hassan, Karnataka
+            </small>
+
+        </footer>
 
     </div>
 
 
-    <!-- Leaflet Map JavaScript -->
     <script
         src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
     </script>
