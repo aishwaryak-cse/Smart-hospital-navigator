@@ -1,32 +1,190 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    text-align: center;
-    padding: 40px;
+* {
+    box-sizing: border-box;
 }
 
-h1 {
-    color: #1d4ed8;
+body {
+    font-family: Arial, sans-serif;
+
+    background: #f4f7fb;
+
+    margin: 0;
+
+    padding: 20px;
+
+    text-align: center;
 }
 
 .container {
+
     background: white;
-    max-width: 500px;
-    margin: auto;
+
+    max-width: 650px;
+
+    margin: 20px auto;
+
     padding: 30px;
-    border-radius: 15px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-select, button {
-    padding: 12px;
-    margin: 10px;
+h1 {
+
+    color: #1d4ed8;
+
+    margin-bottom: 8px;
+}
+
+h2 {
+
+    margin-top: 25px;
+
+    color: #222;
+}
+
+.subtitle {
+
+    color: #666;
+
+    margin-bottom: 25px;
+}
+
+label {
+
     font-size: 16px;
 }
 
-button {
-    background: #1d4ed8;
-    color: white;
-    border: none;
+select {
+
+    padding: 12px;
+
+    margin: 10px;
+
+    font-size: 16px;
+
+    border: 1px solid #bbb;
+
     border-radius: 8px;
+
+    min-width: 220px;
+}
+
+button {
+
+    padding: 12px 22px;
+
+    margin: 10px;
+
+    font-size: 16px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #1d4ed8;
+
+    color: white;
+
     cursor: pointer;
+}
+
+button:hover {
+
+    background: #153eaa;
+}
+
+.result {
+
+    margin: 20px auto;
+
+    padding: 18px;
+
+    background: #eef4ff;
+
+    border-radius: 12px;
+
+    max-width: 500px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    min-height: 30px;
+}
+
+
+/* Map */
+
+#map {
+
+    width: 100%;
+
+    height: 350px;
+
+    margin-top: 15px;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    border: 2px solid #ddd;
+}
+
+
+/* Google Maps Button */
+
+.maps-button {
+
+    background: #16a34a;
+}
+
+.maps-button:hover {
+
+    background: #128139;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding: 10px;
+    }
+
+    .container {
+
+        padding: 20px;
+
+        margin: 10px auto;
+    }
+
+    h1 {
+
+        font-size: 26px;
+    }
+
+    h2 {
+
+        font-size: 20px;
+    }
+
+    select {
+
+        width: 100%;
+
+        margin: 8px 0;
+    }
+
+    button {
+
+        width: 90%;
+    }
+
+    #map {
+
+        height: 300px;
+    }
 }
